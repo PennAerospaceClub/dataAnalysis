@@ -1,13 +1,33 @@
 <!doctype html>
 <html>
 
-<body style="font-family:arial, sans-serif">
-    <h1 style="background:lightblue;padding:10px">
-            Flight Path Visualizer
-    </h1>
-    
-    <h1><a href="demo">Demo Flight Data</a></h1>
-    <h1><a href="upload">Upload Flight Data</a></h1>
+<head>
+    <title>HABViz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <div class="wrapper">
+        <main class="block">
+            <div class="header">
+                <h1> Flight Path Visualizer </h1>
+            </div>
+
+            <div id="about">
+                <p> In Flask URLs are mapped onto functions and the decorator tells us 
+                    which function corresponds to a particular url, or route. In our case we have a function called notdash() 
+                    and this is called for the url “/” (i.e. the root url for the web site). We will see shortly that using 
+                    Flask we can specify other pages with different urls. 
+                <p>
+            </div>
+
+            <div id="buttons">
+                <h1><a href="upload">Upload Flight Data</a></h1>
+                <h1><a href="demo">Demo</a></h1>
+            </div>
+        </main>
+    </div>
 
 </body>
 </html>
+
