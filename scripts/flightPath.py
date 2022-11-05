@@ -52,11 +52,12 @@ def userEnd():
     print("Please select at least 2 columns and no more than 4.")
     numCol = input("Number of columns: ")
   #Show all possible columns
-  with open(csvName) as csvFile:
-    reader = csv.reader(csvFile)
-    row1 = reader.next()
-  columnNames = row1.split(', ')
-  for name in columnNames:
+#   with open(csvName) as csvFile:
+#     reader = csv.reader(csvFile)
+#     row1 = reader.next()
+#   columnNames = row1.split(', ')
+df_first = pd.read_csv(csv, nrows = 1)
+  for name in df_first:
     print(name)
   if numCol == 2:
     x = input("x-axis: ")
