@@ -28,14 +28,49 @@ def plot2D(xAxis, yAxis, csv):
   df = pd.DataFrame(df, columns= [xAxis, yAxis])
   fig = px.scatter(df, x = xAxis, y = yAxis)
   fig.show()
+ 
+def plot3DWithoutColor(xAxis, yAxis, zAxis, csv):
+  df = pd.read_csv (csv)
+  df = pd.DataFrame(df, columns= [xAxis, yAxis, zAxis])
+  fig = px.scatter_3d(df, x = xAxis, y = yAxis, z = zAxis)
+  fig.show()
   
-  #df = {'latitude (degrees)': lat, 'longitude (degrees)': lon, 'height (meters)' : height, 'TEMP': temp}
-  #fig = px.scatter(df, x = 'latitude (degrees)', y = 'longitude (degrees)')
-  #fig.show()
+def plot3DWithColor(xAxis, yAxis, zAxis, color, csv):
+  df = pd.read_csv (csv)
+  df = pd.DataFrame(df, columns= [xAxis, yAxis, zAxis, color])
+  fig = px.scatter_3d(df, x = xAxis, y = yAxis, z = zAxis, surfacecolor = color, color_continuous_scale=px.colors.sequential.Bluered.reverse())
+  fig.show()
 
+#Tests the 3 methods
+#plot3DWithoutColor('latitude (degrees)', 'longitude (meters)', 'TEMP', 'Test Data Analysis.csv')
 
-#lat = df['latitude (degrees)']
-#lon = df['longitude (degrees)']
-#height = df['altitude (meters)']
-#temp = df['TEMP']
-plot2D('latitude (degrees)', 'altitude (meters)', 'Test Data Analysis.csv')
+def userEnd():
+  csvName = input("Enter csv name: ")
+  numCol = input("Number of columns: ")
+  while (numCol < 2 or numCol > 4):
+    print("Please select at least 2 columns and no more than 4.")
+    numCol = input("Number of columns: ")
+  #Show all possible columns
+  with open(csvName) as csvFile
+    reader = csv.reader(csvFile)
+    row1 = reader.next()
+  columnNames = row1.split(', ')
+  for name in columnNames:
+    print(name \n)
+  if numCol == 2:
+    x = input("x-axis: ")
+    y = input("y-axis: ")
+    plot2D(x, y, csv)
+  elif (numCol == 3):
+    x = input("x-axis: ")
+    y = input("y-axis: ")
+    z = input("z-axis: ")
+    plot3DWithoutColor(x, y, z, csv)
+  else:
+    x = input("x-axis: ")
+    y = input("y-axis: ")
+    z = input("z-axis: ")
+    color = input("color axis: ")
+    plot3DWithColor(x, y, z, color, csv)
+
+#Get CSV file, show columns, get columns, go to appropriate function based on number of inputs
