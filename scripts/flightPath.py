@@ -5,6 +5,7 @@ import pandas as pd
 import numpy as np
 from scipy import stats
 
+
 # def tracker(lat, lon, height, temp):
 #   df = {'latitude (degrees)': lat, 'longitude (degrees)': lon, 'height (meters)' : height, 'TEMP': temp}
 #   fig = px.scatter_3d(df, x = 'latitude (degrees)', y = 'longitude (degrees)', z = 'height (meters)', surfacecolor = "TEMP", color_continuous_scale=px.colors.sequential.Bluered.reverse())
@@ -47,16 +48,16 @@ def plot3DWithColor(xAxis, yAxis, zAxis, color, csv):
 def userEnd():
   csvName = input("Enter csv name: ")
   numCol = input("Number of columns: ")
-  while (numCol < 2 or numCol > 4):
+  while (int(numCol) < 2 or int(numCol) > 4):
     print("Please select at least 2 columns and no more than 4.")
     numCol = input("Number of columns: ")
   #Show all possible columns
-  with open(csvName) as csvFile
+  with open(csvName) as csvFile:
     reader = csv.reader(csvFile)
     row1 = reader.next()
   columnNames = row1.split(', ')
   for name in columnNames:
-    print(name \n)
+    print(name)
   if numCol == 2:
     x = input("x-axis: ")
     y = input("y-axis: ")
@@ -72,5 +73,7 @@ def userEnd():
     z = input("z-axis: ")
     color = input("color axis: ")
     plot3DWithColor(x, y, z, color, csv)
+
+userEnd()
 
 #Get CSV file, show columns, get columns, go to appropriate function based on number of inputs
