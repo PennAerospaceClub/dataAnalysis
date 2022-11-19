@@ -56,9 +56,10 @@ def userEnd():
 #     reader = csv.reader(csvFile)
 #     row1 = reader.next()
 #   columnNames = row1.split(', ')
-df_first = pd.read_csv(csv, nrows = 1)
-  for name in df_first:
-    print(name)
+  # print(csvName)
+  df_first = pd.read_csv('Test Data Analysis.csv')
+  for col in df_first.columns:
+    print(col)
   if numCol == 2:
     x = input("x-axis: ")
     y = input("y-axis: ")
