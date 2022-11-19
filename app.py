@@ -3,6 +3,7 @@ import pandas as pd
 import json
 import plotly
 import plotly.express as px
+from .scripts.flightPath import fp
 
 app = Flask(__name__)
 
@@ -36,4 +37,4 @@ def demo():
     description = """
     A 3-d visualization of the flight path based on data collected from a high-altitude balloon.
     """
-    return render_template('plot.html', graphJSON=graphJSON, header=header,description=description)
+    return render_template('plot.html', launchSite=fp.getMaxCol() graphJSON=graphJSON, header=header,description=description)

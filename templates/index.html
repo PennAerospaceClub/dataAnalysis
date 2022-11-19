@@ -3,7 +3,7 @@
 
 <head>
     <title>HABViz</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_front.css') }}">
 </head>
 
 <body>
@@ -14,16 +14,17 @@
             </div>
 
             <div id="about">
-                <p> In Flask URLs are mapped onto functions and the decorator tells us 
-                    which function corresponds to a particular url, or route. In our case we have a function called notdash() 
-                    and this is called for the url “/” (i.e. the root url for the web site). We will see shortly that using 
-                    Flask we can specify other pages with different urls. 
+                <p> High altitude balloon visualization software written by Penn's Aerospace club. 
+                    Feel free to demo some of our data from past launches or input your own. 
+                    Select up to four variables for the x and y axes, i.e. latitude and longitude, height axis i.e. altitude, 
+                    and a fourth variable to for coloring i.e. temperature. Features include: statistics about your data, 
+                    optional linear interpolation to correct for missing or erroneous data, and interactive graphs.
                 <p>
             </div>
 
             <div id="buttons">
-                <h1><a href="upload">Upload Flight Data</a></h1>
-                <h1><a href="demo">Demo</a></h1>
+                <a href="upload" class="button">Upload Flight Data</a>
+                <a href="demo" class="button">Demo</a>
             </div>
         </main>
     </div>
