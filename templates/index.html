@@ -23,7 +23,11 @@
             </div>
 
             <div id="buttons">
-                <a href="upload" class="button">Upload Flight Data</a>
+                <!-- <a href="upload" class="button">Upload Flight Data</a> -->
+                <form method="POST" enctype="multipart/form-data" action="/upload">
+                    <input type="file" id = "myFile" name="uploaded-file" accept=".csv">
+                    <input type = "submit" value="Upload Flight Data">
+                </form>
                 <a href="demo" class="button">Demo</a>
             </div>
         </main>
